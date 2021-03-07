@@ -1,3 +1,8 @@
+all: purge
+	make env
+	make build
+	make open
+
 env:
 	python -m venv env
 	env/bin/pip install --upgrade pip wheel setuptools

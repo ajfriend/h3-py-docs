@@ -444,12 +444,13 @@ def polyfill(geojson, res, geo_json_conformant=False):
 
         Dictionary should be formatted like:
 
-        ```
-        {
-            'type': 'Polygon',
-            'coordinates': [outer, hole1, hole2, ...],
-        }
-        ```
+        .. code-block:: python
+
+            {
+                'type': 'Polygon',
+                'coordinates': [outer, hole1, hole2, ...],
+            }
+
         `outer`, `hole1`, etc., are lists of geo coordinate tuples.
         The holes are optional.
 
@@ -744,7 +745,7 @@ def h3_get_faces(h):
 
     There are twenty possible faces, ranging from 0--19.
 
-    Note: Every interface returns a Python `set` of `int`s.
+    Note: Every interface returns a Python `set` of `int`.
 
     Parameters
     ----------
@@ -752,7 +753,7 @@ def h3_get_faces(h):
 
     Returns
     -------
-    Python `set` of `int`s
+    Python `set` of `int`
     """
     h = _in_scalar(h)
     faces = _cy.get_faces(h)
@@ -778,8 +779,8 @@ def experimental_h3_to_local_ij(origin, h):
     Tuple (i, j) of integer local coordinates of cell `h`
 
 
-    Implementation Notes
-    --------------------
+    Notes
+    -----
 
     The `origin` cell does not define (0, 0) for the IJ coordinate space.
     (0, 0) refers to the center of the base cell containing origin at the
@@ -814,8 +815,8 @@ def experimental_local_ij_to_h3(origin, i, j):
     H3Cell at local (i,j) position relative to the `origin` cell
 
 
-    Implementation Notes
-    --------------------
+    Notes
+    -----
 
     The `origin` cell does not define (0, 0) for the IJ coordinate space.
     (0, 0) refers to the center of the base cell containing origin at the
@@ -849,8 +850,8 @@ def cell_area(h, unit='km^2'):
     The area of the H3 cell in the given units
 
 
-    Implementation Notes
-    --------------------
+    Notes
+    -----
     This function breaks the cell into spherical triangles, and computes
     their spherical area.
     The function uses the spherical distance calculation given by
@@ -876,14 +877,12 @@ def exact_edge_length(e, unit='km'):
     The length of the edge in the given units
 
 
-    Implementation Notes
-    --------------------
+    Notes
+    -----
     This function uses the spherical distance calculation given by
     `point_dist`.
     """
-    e = _in_scalar(e)
-
-    return _cy.edge_length(e, unit=unit)
+    pass
 
 def point_dist(point1, point2, unit='km'):
     """
@@ -907,11 +906,4 @@ def point_dist(point1, point2, unit='km'):
     -------
     Spherical (or "haversine") distance between the points
     """
-    lat1, lng1 = point1
-    lat2, lng2 = point2
-
-    return _cy.point_dist(
-        lat1, lng1,
-        lat2, lng2,
-        unit=unit
-    )
+    pass
