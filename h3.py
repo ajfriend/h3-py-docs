@@ -2,13 +2,13 @@ def versions():
     """
     Return version numbers for both the Python and C libraries.
 
-    Versions are output as strings of the form `'X.Y.Z'`.
-    C and Python should match on `X` (major) and `Y` (minor),
-    but may differ on `Z` (patch).
+    Versions are output as strings of the form ``'X.Y.Z'``.
+    C and Python should match on ``X`` (major) and ``Y`` (minor),
+    but may differ on ``Z`` (patch).
 
     Returns
     -------
-    dict like `{'c': 'X.Y.Z', 'python': 'A.B.C'}`
+    dict like ``{'c': 'X.Y.Z', 'python': 'A.B.C'}``
     """
     pass
 
@@ -340,9 +340,9 @@ def compact(hexes):
 
 def uncompact(hexes, res):
     """
-    Reverse the `compact` operation.
+    Reverse the ``compact`` operation.
 
-    Return a collection of H3 cells, all of resolution `res`.
+    Return a collection of H3 cells, all of resolution ``res``.
 
     Parameters
     ----------
@@ -383,11 +383,11 @@ def h3_set_to_multi_polygon(hexes, geo_json=False):
     list
         List of "polygons".
         Each polygon is a list of "geo sequences" like
-        `[outer, hole1, hole2, ...]`. The holes may not be present.
+        ``[outer, hole1, hole2, ...]``. The holes may not be present.
         Each geo sequence is a list of lat/lng or lng/lat pairs.
     """
-    # todo: this function output does not match with `polyfill`.
-    # This function returns a list of polygons, while `polyfill` returns
+    # todo: this function output does not match with ``polyfill``.
+    # This function returns a list of polygons, while ``polyfill`` returns
     # a GeoJSON-like dictionary object.
     pass
 
@@ -420,13 +420,13 @@ def polyfill(geojson, res, geo_json_conformant=False):
                 'coordinates': [outer, hole1, hole2, ...],
             }
 
-        `outer`, `hole1`, etc., are lists of geo coordinate tuples.
+        ``outer``, ``hole1``, etc., are lists of geo coordinate tuples.
         The holes are optional.
 
     res : int
         Desired output resolution for cells.
     geo_json_conformant : bool, optional
-        When `True`, `outer`, `hole1`, etc. must be sequences of
+        When ``True``, ``outer``, ``hole1``, etc. must be sequences of
         lng/lat pairs, with the last the same as the first.
         When `False`, they must be sequences of lat/lng pairs,
         with the last not needing to match the first.
