@@ -214,7 +214,7 @@ def h3_to_geo_boundary(h, geo_json=False):
 
     Returns
     -------
-    tuple
+    tuple[float, float]
         (lat, lng) or (lng, lat) tuples
     """
     pass
@@ -233,7 +233,7 @@ def k_ring(h, k=1):
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
     """
     pass
 
@@ -263,7 +263,7 @@ def hex_ring(h, k=1):
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
     """
     pass
 
@@ -281,7 +281,7 @@ def hex_range_distances(h, K):
 
     Returns
     -------
-    ordered collection of (unordered collection of H3Cell)
+    list[H3Unordered[H3Cell]]
     """
     pass
 
@@ -292,7 +292,7 @@ def hex_ranges(hexes, K):
 
     Returns
     -------
-    Dict[H3Cell, List[ UnorderedCollection[H3Cell] ]]
+    Dict[H3Cell, List[ H3Unordered[H3Cell] ]]
     """
     # todo: can we drop this function? the user can implement if needed.
     pass
@@ -316,7 +316,7 @@ def h3_to_children(h, res=None):
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
     """
     pass
 
@@ -334,7 +334,7 @@ def compact(hexes):
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
     """
     # todo: does compact work on mixed-resolution collections?
     pass
@@ -354,7 +354,7 @@ def uncompact(hexes, res):
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
 
     Raises
     ------
@@ -435,7 +435,7 @@ def polyfill(geojson, res, geo_json_conformant=False):
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
     """
     pass
 
@@ -582,7 +582,7 @@ def get_h3_unidirectional_edges_from_hexagon(origin):
 
     Returns
     -------
-    unordered collection of H3Edge
+    H3Unordered[H3Edge]
     """
     pass
 
@@ -603,7 +603,7 @@ def h3_line(start, end):
 
     Returns
     -------
-    ordered collection of H3Cell
+    H3Ordered[H3Cell]
         Starting with `start`, and ending with `end`.
     """
     pass
@@ -654,7 +654,7 @@ def get_pentagon_indexes(resolution):
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
     """
     pass
 
@@ -669,7 +669,7 @@ def get_res0_indexes():
 
     Returns
     -------
-    unordered collection of H3Cell
+    H3Unordered[H3Cell]
     """
     pass
 
@@ -706,7 +706,7 @@ def h3_get_faces(h):
 
     Returns
     -------
-    Python `set` of `int`
+    set[int]
     """
     pass
 
@@ -727,8 +727,8 @@ def experimental_h3_to_local_ij(origin, h):
 
     Returns
     -------
-    Tuple (i, j) of integer local coordinates of cell `h`
-
+    tuple[int, int]
+        (i, j) of integer local coordinates of cell `h`
 
     Notes
     -----
