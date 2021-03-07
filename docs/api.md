@@ -4,7 +4,7 @@
 ## Function Summaries
 
 ```{eval-rst}
-.. currentmodule:: h3.api.basic_str
+.. currentmodule:: h3
 
 .. autosummary::
    versions
@@ -23,7 +23,7 @@
 ## Definitions
 
 ```{eval-rst}
-.. automodule:: h3.api.basic_str
+.. automodule:: h3
     :members:
     :imported-members:
 ```
