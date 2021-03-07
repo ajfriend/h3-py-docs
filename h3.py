@@ -8,7 +8,8 @@ def versions():
 
     Returns
     -------
-    dict like ``{'c': 'X.Y.Z', 'python': 'A.B.C'}``
+    dict
+        dict like ``{'c': 'X.Y.Z', 'python': 'A.B.C'}``
     """
     pass
 
@@ -213,7 +214,8 @@ def h3_to_geo_boundary(h, geo_json=False):
 
     Returns
     -------
-    tuple of (float, float) tuples
+    tuple
+        (lat, lng) or (lng, lat) tuples
     """
     pass
 
@@ -757,7 +759,8 @@ def experimental_local_ij_to_h3(origin, i, j):
 
     Returns
     -------
-    H3Cell at local (i,j) position relative to the `origin` cell
+    H3Cell
+        H3Cell at local (i,j) position relative to the `origin` cell
 
 
     Notes
@@ -788,7 +791,8 @@ def cell_area(h, unit='km^2'):
 
     Returns
     -------
-    The area of the H3 cell in the given units
+    float
+        The area of the H3 cell in the given units
 
 
     Notes
@@ -814,7 +818,8 @@ def exact_edge_length(e, unit='km'):
 
     Returns
     -------
-    The length of the edge in the given units
+    float
+        The length of the edge in the given units
 
 
     Notes
@@ -845,6 +850,7 @@ def point_dist(point1, point2, unit='km'):
 
     Returns
     -------
-    Spherical (or "haversine") distance between the points
+    float
+        Spherical (or "haversine") distance between the points
     """
     pass
