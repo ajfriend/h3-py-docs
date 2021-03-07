@@ -25,7 +25,7 @@ jobs:
           pip install -e .
 
       - name: Lint
-        run: flake8 h3.py
+        run: flake8 --ignore=E501 h3.py
 
       # Build the book
       - name: Build the book
