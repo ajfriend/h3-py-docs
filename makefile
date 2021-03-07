@@ -26,3 +26,5 @@ clean:
 open:
 	open docs/_build/html/index.html
 
+lint:
+	env/bin/flake8 h3.py

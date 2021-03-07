@@ -10,14 +10,8 @@ def versions():
     -------
     dict like `{'c': 'X.Y.Z', 'python': 'A.B.C'}`
     """
-    from .._version import __version__
+    pass
 
-    v = {
-        'c': _cy.c_version(),
-        'python': __version__,
-    }
-
-    return v
 
 def string_to_h3(h):
     """
@@ -33,7 +27,8 @@ def string_to_h3(h):
     int
         Unsigned 64-bit integer
     """
-    return _cy.hex2int(h)
+    pass
+
 
 def h3_to_string(x):
     """
@@ -49,7 +44,8 @@ def h3_to_string(x):
     str
         Hexadecimal string like `'89754e64993ffff'`
     """
-    return _cy.int2hex(x)
+    pass
+
 
 def num_hexagons(resolution):
     """
@@ -60,7 +56,8 @@ def num_hexagons(resolution):
     -------
     int
     """
-    return _cy.num_hexagons(resolution)
+    pass
+
 
 def hex_area(resolution, unit='km^2'):
     """
@@ -73,8 +70,8 @@ def hex_area(resolution, unit='km^2'):
     -------
     float
     """
-    # todo: `mean_hex_area` in 4.0
-    return _cy.mean_hex_area(resolution, unit)
+    pass
+
 
 def edge_length(resolution, unit='km'):
     """
@@ -87,8 +84,8 @@ def edge_length(resolution, unit='km'):
     -------
     float
     """
-    # todo: `mean_edge_length` in 4.0
-    return _cy.mean_edge_length(resolution, unit)
+    pass
+
 
 def h3_is_valid(h):
     """
@@ -98,11 +95,8 @@ def h3_is_valid(h):
     -------
     bool
     """
-    try:
-        h = _in_scalar(h)
-        return _cy.is_cell(h)
-    except (ValueError, TypeError):
-        return False
+    pass
+
 
 def h3_unidirectional_edge_is_valid(edge):
     """
@@ -112,11 +106,8 @@ def h3_unidirectional_edge_is_valid(edge):
     -------
     bool
     """
-    try:
-        e = _in_scalar(edge)
-        return _cy.is_edge(e)
-    except (ValueError, TypeError):
-        return False
+    pass
+
 
 def geo_to_h3(lat, lng, resolution):
     """
@@ -128,7 +119,8 @@ def geo_to_h3(lat, lng, resolution):
     H3Cell
 
     """
-    return _out_scalar(_cy.geo_to_h3(lat, lng, resolution))
+    pass
+
 
 def h3_to_geo(h):
     """
@@ -145,7 +137,8 @@ def h3_to_geo(h):
     lng : float
         Longitude
     """
-    return _cy.h3_to_geo(_in_scalar(h))
+    pass
+
 
 def h3_get_resolution(h):
     """
@@ -160,7 +153,8 @@ def h3_get_resolution(h):
     int
     """
     # todo: could also work for edges
-    return _cy.resolution(_in_scalar(h))
+    pass
+
 
 def h3_to_parent(h, res=None):
     """
@@ -177,11 +171,8 @@ def h3_to_parent(h, res=None):
     -------
     H3Cell
     """
-    h = _in_scalar(h)
-    p = _cy.parent(h, res)
-    p = _out_scalar(p)
+    pass
 
-    return p
 
 def h3_distance(h1, h2):
     """
@@ -203,12 +194,8 @@ def h3_distance(h1, h2):
     -------
     int
     """
-    h1 = _in_scalar(h1)
-    h2 = _in_scalar(h2)
+    pass
 
-    d = _cy.distance(h1, h2)
-
-    return d
 
 def h3_to_geo_boundary(h, geo_json=False):
     """
@@ -228,7 +215,8 @@ def h3_to_geo_boundary(h, geo_json=False):
     -------
     tuple of (float, float) tuples
     """
-    return _cy.cell_boundary(_in_scalar(h), geo_json)
+    pass
+
 
 def k_ring(h, k=1):
     """
@@ -245,9 +233,8 @@ def k_ring(h, k=1):
     -------
     unordered collection of H3Cell
     """
-    mv = _cy.disk(_in_scalar(h), k)
+    pass
 
-    return _out_unordered(mv)
 
 def hex_range(h, k=1):
     """
@@ -258,9 +245,8 @@ def hex_range(h, k=1):
     -----
     This name differs from the C API.
     """
-    mv = _cy.disk(_in_scalar(h), k)
+    pass
 
-    return _out_unordered(mv)
 
 def hex_ring(h, k=1):
     """
@@ -277,9 +263,8 @@ def hex_ring(h, k=1):
     -------
     unordered collection of H3Cell
     """
-    mv = _cy.ring(_in_scalar(h), k)
+    pass
 
-    return _out_unordered(mv)
 
 def hex_range_distances(h, K):
     """
@@ -296,14 +281,8 @@ def hex_range_distances(h, K):
     -------
     ordered collection of (unordered collection of H3Cell)
     """
-    h = _in_scalar(h)
+    pass
 
-    out = [
-        _out_unordered(_cy.ring(h, k))
-        for k in range(K + 1)
-    ]
-
-    return out
 
 def hex_ranges(hexes, K):
     """
@@ -314,16 +293,13 @@ def hex_ranges(hexes, K):
     Dict[H3Cell, List[ UnorderedCollection[H3Cell] ]]
     """
     # todo: can we drop this function? the user can implement if needed.
-    out = {
-        h: hex_range_distances(h, K)
-        for h in hexes
-    }
+    pass
 
-    return out
 
 def k_ring_distances(h, K):
     """Alias for `hex_range_distances`."""
-    return hex_range_distances(h, K)
+    pass
+
 
 def h3_to_children(h, res=None):
     """
@@ -340,9 +316,8 @@ def h3_to_children(h, res=None):
     -------
     unordered collection of H3Cell
     """
-    mv = _cy.children(_in_scalar(h), res)
+    pass
 
-    return _out_unordered(mv)
 
 # todo: nogil for expensive C operation?
 def compact(hexes):
@@ -360,10 +335,8 @@ def compact(hexes):
     unordered collection of H3Cell
     """
     # todo: does compact work on mixed-resolution collections?
-    hu = _in_collection(hexes)
-    hc = _cy.compact(hu)
+    pass
 
-    return _out_unordered(hc)
 
 def uncompact(hexes, res):
     """
@@ -387,10 +360,8 @@ def uncompact(hexes, res):
     contains hex smaller than output res.
     https://github.com/uber/h3/blob/master/src/h3lib/lib/h3Index.c#L425
     """
-    hc = _in_collection(hexes)
-    hu = _cy.uncompact(hc, res)
+    pass
 
-    return _out_unordered(hu)
 
 def h3_set_to_multi_polygon(hexes, geo_json=False):
     """
@@ -418,18 +389,16 @@ def h3_set_to_multi_polygon(hexes, geo_json=False):
     # todo: this function output does not match with `polyfill`.
     # This function returns a list of polygons, while `polyfill` returns
     # a GeoJSON-like dictionary object.
-    hexes = _in_collection(hexes)
-    return _cy.h3_set_to_multi_polygon(hexes, geo_json=geo_json)
+    pass
+
 
 def polyfill_polygon(outer, res, holes=None, lnglat_order=False):
-    mv = _cy.polyfill_polygon(outer, res, holes=holes, lnglat_order=lnglat_order)
+    pass
 
-    return _out_unordered(mv)
 
 def polyfill_geojson(geojson, res):
-    mv = _cy.polyfill_geojson(geojson, res)
+    pass
 
-    return _out_unordered(mv)
 
 def polyfill(geojson, res, geo_json_conformant=False):
     """
@@ -466,9 +435,8 @@ def polyfill(geojson, res, geo_json_conformant=False):
     -------
     unordered collection of H3Cell
     """
-    mv = _cy.polyfill(geojson, res, geo_json_conformant=geo_json_conformant)
+    pass
 
-    return _out_unordered(mv)
 
 def h3_is_pentagon(h):
     """
@@ -488,7 +456,8 @@ def h3_is_pentagon(h):
     A pentagon should *also* pass `h3_is_cell()`.
     Will return `False` for valid H3Edge.
     """
-    return _cy.is_pentagon(_in_scalar(h))
+    pass
+
 
 def h3_get_base_cell(h):
     """
@@ -510,7 +479,8 @@ def h3_get_base_cell(h):
     -------
     int
     """
-    return _cy.get_base_cell(_in_scalar(h))
+    pass
+
 
 def h3_indexes_are_neighbors(h1, h2):
     """
@@ -525,10 +495,8 @@ def h3_indexes_are_neighbors(h1, h2):
     -------
     bool
     """
-    h1 = _in_scalar(h1)
-    h2 = _in_scalar(h2)
+    pass
 
-    return _cy.are_neighbors(h1, h2)
 
 def get_h3_unidirectional_edge(origin, destination):
     """
@@ -551,12 +519,8 @@ def get_h3_unidirectional_edge(origin, destination):
     -------
     H3Edge
     """
-    o = _in_scalar(origin)
-    d = _in_scalar(destination)
-    e = _cy.edge(o, d)
-    e = _out_scalar(e)
+    pass
 
-    return e
 
 def get_origin_h3_index_from_unidirectional_edge(e):
     """
@@ -570,11 +534,8 @@ def get_origin_h3_index_from_unidirectional_edge(e):
     -------
     H3Cell
     """
-    e = _in_scalar(e)
-    o = _cy.edge_origin(e)
-    o = _out_scalar(o)
+    pass
 
-    return o
 
 def get_destination_h3_index_from_unidirectional_edge(e):
     """
@@ -588,11 +549,8 @@ def get_destination_h3_index_from_unidirectional_edge(e):
     -------
     H3Cell
     """
-    e = _in_scalar(e)
-    d = _cy.edge_destination(e)
-    d = _out_scalar(d)
+    pass
 
-    return d
 
 def get_h3_indexes_from_unidirectional_edge(e):
     """
@@ -609,11 +567,8 @@ def get_h3_indexes_from_unidirectional_edge(e):
     H3Cell
         Destination cell of edge
     """
-    e = _in_scalar(e)
-    o, d = _cy.edge_cells(e)
-    o, d = _out_scalar(o), _out_scalar(d)
+    pass
 
-    return o, d
 
 def get_h3_unidirectional_edges_from_hexagon(origin):
     """
@@ -627,12 +582,12 @@ def get_h3_unidirectional_edges_from_hexagon(origin):
     -------
     unordered collection of H3Edge
     """
-    mv = _cy.edges_from_cell(_in_scalar(origin))
+    pass
 
-    return _out_unordered(mv)
 
 def get_h3_unidirectional_edge_boundary(edge, geo_json=False):
-    return _cy.edge_boundary(_in_scalar(edge), geo_json=geo_json)
+    pass
+
 
 def h3_line(start, end):
     """
@@ -649,9 +604,8 @@ def h3_line(start, end):
     ordered collection of H3Cell
         Starting with `start`, and ending with `end`.
     """
-    mv = _cy.line(_in_scalar(start), _in_scalar(end))
+    pass
 
-    return _out_ordered(mv)
 
 def h3_is_res_class_III(h):
     """
@@ -680,11 +634,13 @@ def h3_is_res_class_III(h):
     ----------
     1. https://uber.github.io/h3/#/documentation/core-library/coordinate-systems
     """
-    return _cy.is_res_class_iii(_in_scalar(h))
+    pass
+
 
 def h3_is_res_class_iii(h):
     """Alias for `h3_is_res_class_III`."""
-    return h3_is_res_class_III(h)
+    pass
+
 
 def get_pentagon_indexes(resolution):
     """
@@ -698,9 +654,8 @@ def get_pentagon_indexes(resolution):
     -------
     unordered collection of H3Cell
     """
-    mv = _cy.get_pentagon_indexes(resolution)
+    pass
 
-    return _out_unordered(mv)
 
 def get_res0_indexes():
     """
@@ -714,9 +669,8 @@ def get_res0_indexes():
     -------
     unordered collection of H3Cell
     """
-    mv = _cy.get_res0_indexes()
+    pass
 
-    return _out_unordered(mv)
 
 def h3_to_center_child(h, res=None):
     """
@@ -733,11 +687,8 @@ def h3_to_center_child(h, res=None):
     -------
     H3Cell
     """
-    h = _in_scalar(h)
-    p = _cy.center_child(h, res)
-    p = _out_scalar(p)
+    pass
 
-    return p
 
 def h3_get_faces(h):
     """
@@ -755,10 +706,8 @@ def h3_get_faces(h):
     -------
     Python `set` of `int`
     """
-    h = _in_scalar(h)
-    faces = _cy.get_faces(h)
+    pass
 
-    return faces
 
 def experimental_h3_to_local_ij(origin, h):
     """
@@ -791,12 +740,8 @@ def experimental_h3_to_local_ij(origin, h):
     This is done so we don't need to keep recomputing the coordinates of
     `origin` if not needed.
     """
-    origin = _in_scalar(origin)
-    h = _in_scalar(h)
+    pass
 
-    i, j = _cy.experimental_h3_to_local_ij(origin, h)
-
-    return i, j
 
 def experimental_local_ij_to_h3(origin, i, j):
     """
@@ -827,12 +772,8 @@ def experimental_local_ij_to_h3(origin, i, j):
     This is done so we don't need to keep recomputing the coordinates of
     `origin` if not needed.
     """
-    origin = _in_scalar(origin)
+    pass
 
-    h = _cy.experimental_local_ij_to_h3(origin, i, j)
-    h = _out_scalar(h)
-
-    return h
 
 def cell_area(h, unit='km^2'):
     """
@@ -857,9 +798,8 @@ def cell_area(h, unit='km^2'):
     The function uses the spherical distance calculation given by
     `point_dist`.
     """
-    h = _in_scalar(h)
+    pass
 
-    return _cy.cell_area(h, unit=unit)
 
 def exact_edge_length(e, unit='km'):
     """
@@ -883,6 +823,7 @@ def exact_edge_length(e, unit='km'):
     `point_dist`.
     """
     pass
+
 
 def point_dist(point1, point2, unit='km'):
     """
