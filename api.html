@@ -276,7 +276,7 @@ are present.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -333,10 +333,10 @@ of the origin cell.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>(i, j) of integer local coordinates of cell <cite>h</cite></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Tuple (i, j) of integer local coordinates of cell <cite>h</cite></p>
+<dd class="field-odd"><p>tuple[int, int]</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -465,7 +465,7 @@ for a given resolution.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Edge</p>
+<dd class="field-odd"><p>H3Unordered[H3Edge]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -499,7 +499,7 @@ for a given resolution.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -516,7 +516,7 @@ for a given resolution.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -582,7 +582,7 @@ H3Index.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Python <cite>set</cite> of <cite>int</cite></p>
+<dd class="field-odd"><p>set[int]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -708,7 +708,7 @@ minimum-length non-unique path between cells.</p>
 <dd class="field-even"><p>Starting with <cite>start</cite>, and ending with <cite>end</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Ordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -778,7 +778,7 @@ If <cite>None</cite>, then <cite>res = resolution(h) + 1</cite></p></li>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -820,7 +820,7 @@ pair distinct from the first.</p></li>
 <dd class="field-even"><p>(lat, lng) or (lng, lat) tuples</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>tuple</p>
+<dd class="field-odd"><p>tuple[float, float]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -918,7 +918,7 @@ up to and including distance <cite>K</cite>.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>ordered collection of (unordered collection of H3Cell)</p>
+<dd class="field-odd"><p>list[H3Unordered[H3Cell]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -932,7 +932,7 @@ up to and including distance <cite>K</cite>.</p>
 <dd class="field-odd"><p></p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Dict[H3Cell, List[ UnorderedCollection[H3Cell] ]]</p>
+<dd class="field-even"><p>Dict[H3Cell, List[ H3Unordered[H3Cell] ]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -953,7 +953,7 @@ That is, the “hollow” ring.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -974,7 +974,7 @@ That is, the “filled-in” disk.</p>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1055,7 +1055,7 @@ with the last not needing to match the first.</p></li>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1093,7 +1093,7 @@ with the last not needing to match the first.</p></li>
 <dd class="field-even"><p></p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>unordered collection of H3Cell</p>
+<dd class="field-odd"><p>H3Unordered[H3Cell]</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
